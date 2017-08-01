@@ -6618,7 +6618,7 @@ var getTools = exports.getTools = function getTools() {
 var searchTools = exports.searchTools = function searchTools(searchTerm) {
   return {
     type: 'SEARCH_TOOLS',
-    payload: searchTerm
+    payload: { searchTerm: searchTerm }
   };
 };
 
@@ -46627,11 +46627,6 @@ var _ToolForm2 = _interopRequireDefault(_ToolForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// The Main component renders one of the three provided
-// Routes (provided that one matches). Both the /roster
-// and /schedule routes will match any pathname that starts
-// with /roster or /schedule. The / route will only match
-// when the pathname is exactly the string "/"
 var Main = function Main() {
   return _react2.default.createElement(
     _reactRouterDom.Switch,

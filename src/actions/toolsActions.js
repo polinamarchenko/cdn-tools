@@ -9,7 +9,7 @@ export const getTools = () => {
 export const searchTools = (searchTerm) => {
   return {
     type: 'SEARCH_TOOLS',
-    payload: searchTerm
+    payload: {searchTerm}
   }
 }
 
