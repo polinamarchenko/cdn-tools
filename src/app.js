@@ -6,60 +6,21 @@ import {Provider} from 'react-redux';
 
 import React from 'react';
 import {render} from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import style from './../public/main.scss';
 
 import reducers from './reducers/index';
 import {postTool, deleteTool, updateTool} from './actions/toolsActions';
-
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 // store.subscribe(() => console.log('Current state is: ', store.getState()));
-
-import ToolsList from './components/ToolsList';
-import Menu from './components/Menu';
-import ToolForm from './components/ToolForm';
-import SearchBar from './components/SearchBar';
+import App from './components/App';
 
 render(
   <Provider store={store}>
-    <div>
-      <Menu />
-      <SearchBar />
-      <ToolForm />
-      <ToolsList />
-    </div>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>, document.getElementById('app')
 );
-
-// store.dispatch(postTool([
-//   {
-//     _id: 1,
-//     title: "First",
-//     type: "plugin",
-//     description: "description",
-//     link: "first url",
-//     keywords: "plugin, go",
-//     platform: "Go",
-//     cdn: "fastly"
-//   },
-//   {
-//     _id: 2,
-//     title: "Second",
-//     type: "plugin",
-//     description: "description",
-//     link: "first url",
-//     keywords: "plugin, go",
-//     platform: "Go",
-//     cdn: "firebase"
-//   }]
-// ))
-
-// store.dispatch(deleteTool(
-//   {_id: 1}
-// ));
-//
-// store.dispatch(updateTool(
-//   {
-//     _id: 2,
-//     cdn: "firebase"
-//     }
-// ));

@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {getTools} from '../actions/toolsActions'
 import {Grid, Row, Col, Button} from 'react-bootstrap';
 import ToolItem from './ToolItem';
-import ToolForm from './ToolForm';
+import FlipMove from 'react-flip-move';
 
 class ToolsList extends Component {
   //simulate API call
@@ -16,20 +16,25 @@ class ToolsList extends Component {
   render() {
     const toolsList = this.props.tools.map((tool) => {
     return (
-      <Col xs={6} md={3} lg={2} key={tool._id}>
-        <ToolItem
-        _id={tool._id}
-        title={tool.title}
-        cdn={tool.cdn}
-        platform={tool.platform}
-        type={tool.type}
-      />
-      </Col>
+      <div key={tool._id}>
+        <Col xs={12} sm={6} md={6} lg={3}>
+          <ToolItem
+          _id={tool._id}
+          title={tool.title}
+          cdn={tool.cdn}
+          platform={tool.platform}
+          type={tool.type}
+        />
+        </Col>
+      </div>
+
     )})
     return (
       <Grid>
         <Row>
+          <FlipMove maintainContainerHeight={true}>
           {toolsList}
+        </FlipMove>
         </Row>
       </Grid>
     )

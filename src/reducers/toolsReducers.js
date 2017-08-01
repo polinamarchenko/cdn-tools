@@ -31,7 +31,7 @@ const toolsReducers = (state={tools:[
       break;
     case "DELETE_TOOL":
       const indexToDelete = state.tools.findIndex((tool) => tool._id === action.payload._id);
-      const tools = [...state.tools];
+      let tools = [...state.tools];
       return {tools: [...tools.slice(0, indexToDelete), ...tools.slice(indexToDelete + 1)]}
       break;
     case "UPDATE_TOOL":
@@ -43,6 +43,16 @@ const toolsReducers = (state={tools:[
       }
       if (indexToUpdate !== -1) {
         return {tools: [...currentTools.slice(0, indexToUpdate), toolToUpdate, ...currentTools.slice(indexToUpdate + 1)]}
+      }
+      break;
+    case "SEARCH_TOOLS":
+      const curTools = [...state.tools];
+      console.log(curTools);
+      const filteredTools = curTools.filter((tool) => {
+        return tool.cdn.includes(action.payload.searchTerm);
+      });
+      if (filteredTools.length > 0) {
+        return {tools: [...filteredTools]};
       }
       break;
   }
