@@ -20,14 +20,24 @@ const toolsReducers = (state={tools:[
     keywords: "plugin, go",
     platform: "Go",
     cdn: "firebase"
+  },
+  {
+    _id: 3,
+    title: "Third",
+    type: "plugin",
+    description: "description",
+    link: "first url",
+    keywords: "plugin, go",
+    platform: "Go",
+    cdn: "fibase"
   }
-]}, action) => {
+], value: '', filtered: []}, action) => {
   switch(action.type){
     case "GET_TOOLS":
-      return {...state, tools: [...state.tools]}
+      return {...state, tools: [...state.tools], filtered: [...state.tools]}
       break;
     case "POST_TOOL":
-      return {tools: [...state.tools, ...action.payload]}
+      return {tools: [...state.tools, ...action.payload], filtered: [...state.tools, ...action.payload]}
       break;
     case "DELETE_TOOL":
       const indexToDelete = state.tools.findIndex((tool) => tool._id === action.payload._id);
@@ -46,14 +56,12 @@ const toolsReducers = (state={tools:[
       }
       break;
     case "SEARCH_TOOLS":
-      const curTools = [...state.tools];
-      console.log(curTools);
-      const filteredTools = curTools.filter((tool) => {
-        return tool.cdn.includes(action.payload.searchTerm);
+      const {value} = action;
+      let filtered = state.tools.filter((tool) => {
+        return tool.cdn.includes(value) || tool.title.toLowerCase().includes(value);
       });
-      if (filteredTools.length > 0) {
-        return {tools: [...filteredTools]};
-      }
+      return {...state, value, filtered};
+
       break;
   }
   return state;

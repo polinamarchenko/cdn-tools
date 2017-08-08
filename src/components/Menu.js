@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Menu extends Component {
   render() {
@@ -14,12 +15,20 @@ class Menu extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem><Link to="/about">About</Link></NavItem>
-            <NavItem><Link to="/login">Login</Link></NavItem>
-            <NavItem><Link to="/signup">Sign up</Link></NavItem>
+            <LinkContainer to="/about">
+              <NavItem>About</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <NavItem>Login</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/signup">
+              <NavItem>Sign Up</NavItem>
+            </LinkContainer>
           </Nav>
           <Nav pullRight>
-            <NavItem><Link to="/new">Add a tool</Link></NavItem>
+            <LinkContainer to="/new">
+              <NavItem>Add a tool</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
   </Navbar>

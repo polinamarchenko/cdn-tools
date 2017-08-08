@@ -9,14 +9,15 @@ import ToolItem from './ToolItem';
 import FlipMove from 'react-flip-move';
 
 class ToolsList extends Component {
-  //simulate API call
+  // simulate API call
   componentDidMount() {
     this.props.getTools();
   }
+
   render() {
     const toolsList = this.props.tools.map((tool) => {
     return (
-      <div key={tool._id}>
+      <div key={tool._id || tool}>
         <Col xs={12} sm={6} md={6} lg={3}>
           <ToolItem
           _id={tool._id}
@@ -43,7 +44,7 @@ class ToolsList extends Component {
 
 function mapStateToProps(state){
   return {
-    tools: state.tools.tools
+    tools: state.tools.filtered
   }
 }
 

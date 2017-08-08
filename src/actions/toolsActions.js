@@ -6,10 +6,10 @@ export const getTools = () => {
         }
 }
 
-export const searchTools = (searchTerm) => {
+export const searchTools = (value) => {
   return {
     type: 'SEARCH_TOOLS',
-    payload: {searchTerm}
+    value
   }
 }
 
