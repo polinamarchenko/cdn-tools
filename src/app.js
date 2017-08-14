@@ -1,17 +1,15 @@
-"use strict"
+'use strict';
 
-import {applyMiddleware, createStore} from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import style from './../public/main.scss';
-
 import reducers from './reducers/index';
-import {postTool, deleteTool, updateTool} from './actions/toolsActions';
+import { postTool, deleteTool, updateTool } from './actions/toolsActions';
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 // store.subscribe(() => console.log('Current state is: ', store.getState()));
@@ -22,5 +20,6 @@ render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </Provider>, document.getElementById('app')
+  </Provider>,
+  document.getElementById('app')
 );

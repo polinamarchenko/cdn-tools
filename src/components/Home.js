@@ -1,14 +1,16 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import ToolsList from './ToolsList';
-import {PageHeader, Col, Well} from 'react-bootstrap';
+import { PageHeader, Col, Well } from 'react-bootstrap';
+import './../scss/main.scss';
 
-const Home = () => (
+const Home = () =>
   <div>
-    <PageHeader style={{textAlign: "center"}}>The largest CDN tools collection</PageHeader>
-    <SearchBar />
+    <div className="header">
+      <PageHeader>The largest CDN tools collection</PageHeader>
+      <SearchBar />
+    </div>
     <ToolsList />
-  </div>
-)
+  </div>;
 
 export default Home;

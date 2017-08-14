@@ -1,0 +1,17 @@
+@import './about.scss';
+@import './header.scss';
+
+body {
+  .page-header,
+  h1 {
+    margin-top: 0;
+  }
+
+  .page-header {
+    border-bottom: none;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+  }
+}
