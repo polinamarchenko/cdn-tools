@@ -1,10 +1,12 @@
 .header {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    url("../../public/images/bg.jpeg");
-  background-size: cover;
+  // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+  //   url("../../public/images/bg.jpeg");
+  // background-size: cover;
+  background-color: #132940;
+  color: #e3edea;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 50vh;
 }

@@ -46968,8 +46968,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-_utils.bootstrapUtils.addStyle(_reactBootstrap.Button, 'test');
-
 var SearchBar = function (_Component) {
   _inherits(SearchBar, _Component);
 
@@ -46995,10 +46993,9 @@ var SearchBar = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_reactBootstrap.Col, { sm: 3, md: 3 }),
         _react2.default.createElement(
           _reactBootstrap.Col,
-          { md: 6 },
+          null,
           _react2.default.createElement(
             _reactBootstrap.Form,
             { inline: true, onSubmit: this.onSubmit.bind(this) },
@@ -47020,13 +47017,12 @@ var SearchBar = function (_Component) {
               { sm: 2, md: 4 },
               _react2.default.createElement(
                 _reactBootstrap.Button,
-                { bsStyle: 'test' },
+                { bsStyle: 'success' },
                 'Search'
               )
             )
           )
-        ),
-        _react2.default.createElement(_reactBootstrap.Col, { sm: 3, md: 3 })
+        )
       );
     }
   }]);
@@ -47744,7 +47740,10 @@ var BookItem = function (_Component) {
             { xs: 12, md: 12 },
             _react2.default.createElement(
               _reactBootstrap.Thumbnail,
-              { src: '../../images/chrome-extension.png', alt: 'chrome extension icon' },
+              {
+                src: '../../images/chrome-extension.png',
+                alt: 'chrome extension icon'
+              },
               _react2.default.createElement(
                 'h2',
                 null,

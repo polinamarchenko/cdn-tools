@@ -15,8 +15,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { searchTools } from '../actions/toolsActions';
 
-bootstrapUtils.addStyle(Button, 'test');
-
 class SearchBar extends Component {
   onSearch(e) {
     this.props.searchTools(e.target.value);
@@ -29,8 +27,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <Col sm={3} md={3} />
-        <Col md={6}>
+        <Col>
           <Form inline onSubmit={this.onSubmit.bind(this)}>
             <Col xs={6} sm={6} md={8}>
               <FormGroup controlId="search">
@@ -42,12 +39,10 @@ class SearchBar extends Component {
               </FormGroup>
             </Col>
             <Col sm={2} md={4}>
-              <Button bsStyle="test">Search</Button>
+              <Button bsStyle="success">Search</Button>
             </Col>
           </Form>
         </Col>
-
-        <Col sm={3} md={3} />
       </div>
     );
   }
