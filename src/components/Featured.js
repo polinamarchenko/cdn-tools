@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getTools } from '../actions/toolsActions';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
-import ToolItem from './ToolItem';
+import ToolItemFeatured from './ToolItemFeatured';
 import FlipMove from 'react-flip-move';
 
-class ToolsList extends Component {
+class Featured extends Component {
   // simulate API call
   componentDidMount() {
     this.props.getTools();
@@ -18,8 +18,8 @@ class ToolsList extends Component {
     const toolsList = this.props.tools.map(tool => {
       return (
         <div key={tool._id || tool}>
-          <Col xs={12} sm={6} md={6} lg={3}>
-            <ToolItem
+          <Col xs={12} sm={6} md={6} lg={6} className="featured">
+            <ToolItemFeatured
               _id={tool._id}
               title={tool.title}
               cdn={tool.cdn}
@@ -33,6 +33,7 @@ class ToolsList extends Component {
     return (
       <Grid>
         <Row>
+          <h2>FEATURED TOOLS</h2>
           <FlipMove maintainContainerHeight={true}>
             {toolsList}
           </FlipMove>
@@ -52,4 +53,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getTools }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToolsList);
+export default connect(mapStateToProps, mapDispatchToProps)(Featured);

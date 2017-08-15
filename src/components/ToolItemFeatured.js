@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Well, Button, Thumbnail } from 'react-bootstrap';
+import { Row, Col, Well, Button, Image } from 'react-bootstrap';
 
-class ToolItem extends Component {
+class ToolItemFeatured extends Component {
   render() {
     return (
-      <div>
+      <Well>
         <Row>
-          <Col xs={12} md={12}>
-            <Thumbnail
-              src="../../images/chrome.png"
-              alt="chrome extension icon"
-            >
+          <Col xs={12} md={12} className="card-grid">
+            <Col lg={6}>
               <h3>
                 {this.props.title}
               </h3>
@@ -25,10 +22,18 @@ class ToolItem extends Component {
                 {this.props.type}
               </h4>
               <Button bsStyle="success">More</Button>
-            </Thumbnail>
+            </Col>
+            <Col lg={6} className="tool">
+              <Image
+                src="../../images/chrome.png"
+                alt="chrome extension icon"
+                height="100rem"
+                width="auto"
+              />
+            </Col>
           </Col>
         </Row>
-      </div>
+      </Well>
     );
   }
 }
@@ -39,4 +44,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(ToolItem);
+export default connect(mapStateToProps)(ToolItemFeatured);
