@@ -1,5 +1,5 @@
 'use strict';
-// https://github.com/moroshko/react-autosuggest
+
 import React, { Component } from 'react';
 import {
   Panel,
@@ -27,20 +27,19 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <Col>
+        <Col lg={12}>
           <Form inline onSubmit={this.onSubmit.bind(this)}>
-            <Col xs={6} sm={6} md={8}>
-              <FormGroup controlId="search">
-                <FormControl
-                  type="text"
-                  placeholder="search..."
-                  onChange={this.onSearch.bind(this)}
-                />
-              </FormGroup>
-            </Col>
-            <Col sm={2} md={4}>
-              <Button bsStyle="success">Search</Button>
-            </Col>
+            <FormGroup bsSize="large" controlId="search">
+              <FormControl
+                type="text"
+                placeholder="search..."
+                onChange={this.onSearch.bind(this)}
+              />
+            </FormGroup>
+
+            <Button bsStyle="success" bsSize="large">
+              Search
+            </Button>
           </Form>
         </Col>
       </div>

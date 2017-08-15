@@ -35931,11 +35931,11 @@ var Menu = function (_Component) {
             null,
             _react2.default.createElement(
               _reactRouterBootstrap.LinkContainer,
-              { to: '/about' },
+              { to: '/tools' },
               _react2.default.createElement(
                 _reactBootstrap.NavItem,
                 null,
-                'About'
+                'Tools'
               )
             ),
             _react2.default.createElement(
@@ -46868,6 +46868,10 @@ var _ToolForm = __webpack_require__(546);
 
 var _ToolForm2 = _interopRequireDefault(_ToolForm);
 
+var _Tools = __webpack_require__(549);
+
+var _Tools2 = _interopRequireDefault(_Tools);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main() {
@@ -46875,6 +46879,7 @@ var Main = function Main() {
     _reactRouterDom.Switch,
     null,
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/tools', component: _Tools2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _Login2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _Signup2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/new', component: _ToolForm2.default })
@@ -46898,9 +46903,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SearchBar = __webpack_require__(529);
+var _CDNList = __webpack_require__(547);
 
-var _SearchBar2 = _interopRequireDefault(_SearchBar);
+var _CDNList2 = _interopRequireDefault(_CDNList);
+
+var _Header = __webpack_require__(548);
+
+var _Header2 = _interopRequireDefault(_Header);
 
 var _ToolsList = __webpack_require__(535);
 
@@ -46916,15 +46925,11 @@ var Home = function Home() {
   return _react2.default.createElement(
     'div',
     null,
+    _react2.default.createElement(_Header2.default, null),
     _react2.default.createElement(
       'div',
-      { className: 'header' },
-      _react2.default.createElement(
-        _reactBootstrap.PageHeader,
-        null,
-        'The largest CDN tools collection'
-      ),
-      _react2.default.createElement(_SearchBar2.default, null)
+      { className: 'cdns' },
+      _react2.default.createElement(_CDNList2.default, null)
     ),
     _react2.default.createElement(_ToolsList2.default, null)
   );
@@ -46938,7 +46943,6 @@ exports.default = Home;
 
 "use strict";
 
-// https://github.com/moroshko/react-autosuggest
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -46995,31 +46999,23 @@ var SearchBar = function (_Component) {
         null,
         _react2.default.createElement(
           _reactBootstrap.Col,
-          null,
+          { lg: 12 },
           _react2.default.createElement(
             _reactBootstrap.Form,
             { inline: true, onSubmit: this.onSubmit.bind(this) },
             _react2.default.createElement(
-              _reactBootstrap.Col,
-              { xs: 6, sm: 6, md: 8 },
-              _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { controlId: 'search' },
-                _react2.default.createElement(_reactBootstrap.FormControl, {
-                  type: 'text',
-                  placeholder: 'search...',
-                  onChange: this.onSearch.bind(this)
-                })
-              )
+              _reactBootstrap.FormGroup,
+              { bsSize: 'large', controlId: 'search' },
+              _react2.default.createElement(_reactBootstrap.FormControl, {
+                type: 'text',
+                placeholder: 'search...',
+                onChange: this.onSearch.bind(this)
+              })
             ),
             _react2.default.createElement(
-              _reactBootstrap.Col,
-              { sm: 2, md: 4 },
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                { bsStyle: 'success' },
-                'Search'
-              )
+              _reactBootstrap.Button,
+              { bsStyle: 'success', bsSize: 'large' },
+              'Search'
             )
           )
         )
@@ -49732,6 +49728,232 @@ function mapDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(ToolForm);
+
+/***/ }),
+/* 547 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = __webpack_require__(35);
+
+var _reactDom = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CDNList = function (_Component) {
+  _inherits(CDNList, _Component);
+
+  function CDNList() {
+    _classCallCheck(this, CDNList);
+
+    return _possibleConstructorReturn(this, (CDNList.__proto__ || Object.getPrototypeOf(CDNList)).apply(this, arguments));
+  }
+
+  _createClass(CDNList, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactBootstrap.Grid,
+        null,
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', { src: '../../images/akamai.png', height: '40rem', width: 'auto' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', { src: '../../images/fastly.png', height: '40rem', width: 'auto' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', {
+                src: '../../images/cloudflare.png',
+                height: '40rem',
+                width: 'auto'
+              })
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', { src: '../../images/maxcdn.png', height: '20rem', width: 'auto' })
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', {
+                src: '../../images/rackspace.png',
+                height: '40rem',
+                width: 'auto'
+              })
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { lg: 2, md: 4, sm: 4 },
+            _react2.default.createElement(
+              'div',
+              { className: 'cdn' },
+              _react2.default.createElement('img', { src: '../../images/amazon.png', height: '40rem', width: 'auto' })
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return CDNList;
+}(_react.Component);
+
+exports.default = CDNList;
+
+/***/ }),
+/* 548 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = __webpack_require__(35);
+
+var _SearchBar = __webpack_require__(529);
+
+var _SearchBar2 = _interopRequireDefault(_SearchBar);
+
+__webpack_require__(232);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'header' },
+    _react2.default.createElement(
+      _reactBootstrap.PageHeader,
+      null,
+      'The largest CDN tools collection',
+      ' ',
+      _react2.default.createElement(
+        'small',
+        null,
+        'search by CDN, platform or tool type'
+      )
+    ),
+    _react2.default.createElement(_SearchBar2.default, null)
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
+/* 549 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactBootstrap = __webpack_require__(35);
+
+var _SearchBar = __webpack_require__(529);
+
+var _SearchBar2 = _interopRequireDefault(_SearchBar);
+
+var _ToolsList = __webpack_require__(535);
+
+var _ToolsList2 = _interopRequireDefault(_ToolsList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tools = function (_Component) {
+  _inherits(Tools, _Component);
+
+  function Tools() {
+    _classCallCheck(this, Tools);
+
+    return _possibleConstructorReturn(this, (Tools.__proto__ || Object.getPrototypeOf(Tools)).apply(this, arguments));
+  }
+
+  _createClass(Tools, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_SearchBar2.default, null),
+        _react2.default.createElement(_ToolsList2.default, null)
+      );
+    }
+  }]);
+
+  return Tools;
+}(_react.Component);
+
+exports.default = Tools;
 
 /***/ })
 /******/ ]);

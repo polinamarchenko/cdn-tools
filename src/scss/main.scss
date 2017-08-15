@@ -1,5 +1,6 @@
 @import './about.scss';
 @import './header.scss';
+@import './cdnlist.scss';
 
 body {
   .page-header,
@@ -13,5 +14,8 @@ body {
 
   .navbar {
     margin-bottom: 0;
+    border: none;
+    border-radius: 0;
+    background-color: #132940;
   }
 }

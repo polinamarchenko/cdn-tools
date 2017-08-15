@@ -1,14 +1,15 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import CDNList from './CDNList';
+import Header from './Header';
 import ToolsList from './ToolsList';
 import { PageHeader, Col, Well } from 'react-bootstrap';
 import './../scss/main.scss';
 
 const Home = () =>
   <div>
-    <div className="header">
-      <PageHeader>The largest CDN tools collection</PageHeader>
-      <SearchBar />
+    <Header />
+    <div className="cdns">
+      <CDNList />
     </div>
     <ToolsList />
   </div>;

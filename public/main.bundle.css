@@ -5,7 +5,17 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 50vh; }
+  height: 60vh; }
+
+.cdns {
+  background-color: #68d58f;
+  padding: 5rem;
+  margin-bottom: 5rem; }
+
+.cdn {
+  text-align: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem; }
 
 body .page-header,
 body h1 {
@@ -15,4 +25,7 @@ body .page-header {
   border-bottom: none; }
 
 body .navbar {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+  background-color: #132940; }

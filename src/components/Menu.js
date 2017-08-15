@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
@@ -15,8 +15,8 @@ class Menu extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to="/about">
-              <NavItem>About</NavItem>
+            <LinkContainer to="/tools">
+              <NavItem>Tools</NavItem>
             </LinkContainer>
             <LinkContainer to="/login">
               <NavItem>Login</NavItem>
@@ -31,8 +31,8 @@ class Menu extends Component {
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
-  </Navbar>
-    )
+      </Navbar>
+    );
   }
 }
 
